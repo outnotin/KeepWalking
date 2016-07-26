@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/keep_walking_layout"
+    tools:context="com.augmentis.ayp.keepwalking.KeepWalkingActivity">
+
+    <EditText
+
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Hello World!"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:id="@+id/title_text_view"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/save_button"
+        android:text="Save"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
