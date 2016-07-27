@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -21,10 +22,13 @@ public class KeepWalkingFragment extends Fragment {
     private static final String KEEPWALKING_ID = "KeepWalkingFragment.KEEPWALKING_ID";
 
     private KeepWalking keepWalking;
-    private String editTitles;
     private EditText editKeepWalkingTitleText;
     private Button keepWalkingSaveButton;
+
+    private String editTitles;
+    private String titleBuffer;
     private boolean isNewKeepWalking;
+    private boolean isTextChanged;
 
 
     public KeepWalkingFragment() {
@@ -32,7 +36,7 @@ public class KeepWalkingFragment extends Fragment {
     }
 
 
-    public static KeepWalkingFragment newInstance(UUID keepWalkingId, String param2) {
+    public static KeepWalkingFragment newInstance(UUID keepWalkingId) {
         KeepWalkingFragment fragment = new KeepWalkingFragment();
         Bundle args = new Bundle();
         args.putSerializable(KEEPWALKING_ID, keepWalkingId);
@@ -63,7 +67,7 @@ public class KeepWalkingFragment extends Fragment {
         }
 
         editKeepWalkingTitleText.setText(keepWalking.getTitle());
-
+        titleBuffer = keepWalking.getTitle();
         editKeepWalkingTitleText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -72,6 +76,7 @@ public class KeepWalkingFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                isTextChanged = true;
                 editTitles = charSequence.toString();
             }
 
@@ -89,7 +94,13 @@ public class KeepWalkingFragment extends Fragment {
                 if(isNewKeepWalking){
                     keepWalkingMain.keepWalkingList.add(keepWalking);
                 }
-                keepWalking.setTitle(editTitles);
+                if(isTextChanged){
+                    keepWalking.setTitle(editTitles);
+                }else{
+                    keepWalking.setTitle(titleBuffer);
+                }
+
+                keepWalking.setKeepDate(new Date());
 
                 Intent intent = new Intent(getContext(), KeepWalkingListActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
