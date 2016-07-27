@@ -44,6 +44,6 @@ public class KeepWalking {
 
     public String getStringDate(Date inputDate){
         DateFormat dfm = new DateFormat();
-        return dfm.format("dd MMMM yyyy", inputDate).toString();
+        return dfm.format("dd MMMM yyyy hh:mm", inputDate).toString();
     }
 }

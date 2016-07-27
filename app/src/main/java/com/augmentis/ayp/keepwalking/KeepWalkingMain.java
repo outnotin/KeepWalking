@@ -18,14 +18,14 @@ public class KeepWalkingMain {
     public KeepWalkingMain(){
         keepWalkingList = new ArrayList<>();
 
-        KeepWalking keepWalking = new KeepWalking();
-        keepWalking.setTitle("Title #1");
-
-        KeepWalking keepWalking1 = new KeepWalking();
-        keepWalking1.setTitle("Title #2");
-
-        keepWalkingList.add(keepWalking);
-        keepWalkingList.add(keepWalking1);
+//        KeepWalking keepWalking = new KeepWalking();
+//        keepWalking.setTitle("Title #1");
+//
+//        KeepWalking keepWalking1 = new KeepWalking();
+//        keepWalking1.setTitle("Title #2");
+//
+//        keepWalkingList.add(keepWalking);
+//        keepWalkingList.add(keepWalking1);
 
     }
 
